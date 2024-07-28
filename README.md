@@ -9,9 +9,36 @@
 
 ## Решение - подготовка к выполнению
 
-![alt text]()
+Создал два VM: для jenkins-master и jenkins-agent.
 
-![alt text]()
+![alt text](https://github.com/artmur1/19-04-jenkins-hw/blob/main/img/19-04-01-00-hw.png)
+
+Плейбук завершен с ошибкой - не удается скачать agent.jar.
+
+![alt text](https://github.com/artmur1/19-04-jenkins-hw/blob/main/img/19-04-01-02-hw.png)
+
+Подключился к ВМ jenkins-master, оказывается jenkins не запущен. Пробую запустить - не удается.
+
+![alt text](https://github.com/artmur1/19-04-jenkins-hw/blob/main/img/19-04-01-03-hw.png)
+
+    ● jenkins.service - Jenkins Continuous Integration Server
+       Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; vendor preset: disabled)
+       Active: failed (Result: start-limit) since Sun 2024-07-28 10:07:37 UTC; 1s ago
+      Process: 4931 ExecStart=/usr/bin/jenkins (code=exited, status=1/FAILURE)
+     Main PID: 4931 (code=exited, status=1/FAILURE)
+    
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: jenkins.service: main process exited, code=exited, status=1/FAILURE
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: Failed to start Jenkins Continuous Integration Server.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: Unit jenkins.service entered failed state.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: jenkins.service failed.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: jenkins.service holdoff time over, scheduling restart.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: Stopped Jenkins Continuous Integration Server.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: start request repeated too quickly for jenkins.service
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: Failed to start Jenkins Continuous Integration Server.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: Unit jenkins.service entered failed state.
+    Jul 28 10:07:37 centos7-jm.ru-central1.internal systemd[1]: jenkins.service failed.
+
+Запускаю плейбук из задания стандартный, никаких изменений не вносил. Сервис jenkins не запускается потому что я что-то не правильно делаю, либо из-за того, что Centos7 больше не поддерживается?
 
 ## Основная часть
 
